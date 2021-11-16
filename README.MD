@@ -23,19 +23,24 @@ touch .env
 echo "API_URL=http://api.openweathermap.org/data/2.5/weather" >> .env
 echo "API_KEY=<your_api_key>" >> .env
 ```
-- Note: Don't forget to replace <your_api_key> with the correct appkey
+- Note: Don't forget to replace <your_api_key> with the correct appkey otherwise you will get an 401 unauthorized HTTP response.
+
 ## Running server
-1. In Linux run the following command in the root of the project:
+
+1. Run project migrations
+
+```bash
+docker-compose run django python manage.py migrate && docker-compose down
+```
+
+2. In Linux run the following command in the root of the project:
 
 ```bash
 docker-compose up --build
 ```
 
-2. Run project migrations
-```bash
-docker-compose run django python manage.py migrate && docker-compose down
-```
 ## Testing Code
+
 Run the following comand to execute django tests:
 ```bash
 docker-compose run django python manage.py test && docker-compose down
