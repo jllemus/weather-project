@@ -69,3 +69,4 @@ scripts_test/
 src/
 celerybeat-schedule.*
 Pipfile
+.env
